@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+
+<div class="jumbotron">
+    <h1>Welcome, {{ name }}!</h1>
+
+</div>
+    <body background = "static/yale.jpg">
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Raleway:400,900i" rel="stylesheet">
+
+        <link href="https://fonts.googleapis.com/css?family=Comfortaa:400,700" rel="stylesheet">
+    </head>
+    <body>
+        <div class = "info">
+        <div class = "color">
+        <div class="container">
+        <div id="day"></div>
+        <div id="date"></div>
+        </div>
+        </div>
+  </div>
+</body>
+    <body>
+        <ul class = "color">
+            <li class = "info">Temperature in {{ city }}: {{ result }} degrees <br>
+            Today you have: <br>
+            {% for day in days %} {{ day.name }} <br> {% endfor %}
+            </li>
+        </ul>
+    </body>
+</body>
+
+
+<script>
+    var date = new Date();
+    var day = date.getDate();
+    var year = date.getFullYear();
+
+    var month = date.getMonth();
+    var monthLabels= ["January", "February",  "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+    var weekDay = date.getDay();
+    var weekDayLabels = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+    //create function to grab day, month, date, year
+    function Day(){
+        month = monthLabels[month];
+        weekDay = weekDayLabels[weekDay];
+
+        document.getElementById("date").innerHTML = "Today is " + "<span>" + weekDay + "</span>" + " " + "<span>" + month + "</span>" + " " + "<span>" + day + "</span>" + ", " + year;
+        document.getElementById("date").style.fontSize = "x-large";
+        document.getElementById("date").style.border = "thick solid #FFFFFF";
+
+    }
+
+    Day();
+</script>
+{% endblock %}

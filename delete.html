@@ -1,0 +1,60 @@
+
+{% extends "layout.html" %}
+
+{% block title %}
+    delete
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <div class="section">
+            <table id = "myTable">
+                <thead>
+                    <tr>
+                        <th>Name </th>
+                        <th>Description </th>
+                        <th>Date </th>
+                        <th>Start Time </th>
+                        <th>End Time </th>
+                        <th>Important? </th>
+                        <th>Time Entered</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    {% for event in events %}
+                    <tr>
+
+                        {% if event.important == "Y" %}
+                        <td class = "normal">{{ event.name }}</td>
+                        <td class = "normal">{{ event.description }}</td>
+                        <td class = "normal">{{ event.date }}</td>
+                        <td class = "normal">{{ event.start }}</td>
+                        <td class = "normal">{{ event.end }}</td>
+                        <td class = "normal">{{ event.important }}</td>
+                        <td class = "normal">{{ event.entered }}</td>
+                        {% else %}
+                        <td>{{ event.name }}</td>
+                        <td>{{ event.description }}</td>
+                        <td>{{ event.date }}</td>
+                        <td>{{ event.start }}</td>
+                        <td>{{ event.end }}</td>
+                        <td>{{ event.important }}</td>
+                        <td>{{ event.entered }}</td>
+                    {% endif %}
+
+                   </tr>
+                   {% endfor %}
+<form action="/delete" method="post">
+    <div class="form-group">
+            <input class="form-control" name="delete" placeholder="Delete" type="text">
+    </div>
+        <button class="btn btn-primary" type="submit">Delete Event</button>
+        </form>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

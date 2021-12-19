@@ -1,0 +1,77 @@
+    <!--inspiration from: https://www.freecodecamp.org/news/how-to-build-a-calendar-with-css-grid/-->
+    {% extends "layout.html" %}
+
+{% block title %}
+    Calendar
+{% endblock %}
+
+{% block main %}
+    <h4>This Week's Schedule: Week of {{ beginning }} to {{ ending }}</h4>
+      <head>
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,900i" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css?family=Comfortaa:400,700" rel="stylesheet">
+</head>
+<body>
+    <div class = "color">
+  <div class="container">
+    <div id="day"></div>
+    <div id="date"></div>
+  </div>
+</body>
+</div>
+</div>
+</body>
+
+<script>var date = new Date();
+var day = date.getDate();
+var year = date.getFullYear();
+
+var month = date.getMonth();
+var monthLabels= ["January", "February",  "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+var weekDay = date.getDay();
+var weekDayLabels = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+//function to grab day, month, date, year
+function Day(){
+month = monthLabels[month];
+weekDay = weekDayLabels[weekDay];
+
+document.getElementById("day").innerHTML = "Today is " + "<span>" + weekDay + "</span>";
+}
+
+Day();</script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <table>
+
+    <tbody>
+      {% for event in events %}
+        <tr>
+          {% if event.important == "Y" %}
+            <td class = "normal">{{ event.weekday }}</td>
+            <td class = "normal">{{ event.name }}</td>
+            <td class = "normal">{{ event.description }}</td>
+            <td class = "normal">{{ event.date }}</td>
+            <td class = "normal">{{ event.start }}</td>
+            <td class = "normal">{{ event.end }}</td>
+            <td class = "normal">{{ event.important }}</td>
+          {% else %}
+            <td>{{ event.weekday }}</td>
+            <td>{{ event.name }}</td>
+            <td>{{ event.description }}</td>
+            <td>{{ event.date }}</td>
+            <td>{{ event.start }}</td>
+            <td>{{ event.end }}</td>
+            <td>{{ event.important }}</td>
+          {% endif %}
+        </tr>
+
+      {% endfor %}
+
+  </tbody>
+</table>
+
+
+{% endblock %}
