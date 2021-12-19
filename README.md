@@ -1,5 +1,7 @@
 # Documentation
 
+"The Yale Weekly", created by Ananya Rajagopalan and Marcella Villagomez
+
 ## YouTube Link to Demo Video
 
 https://youtu.be/RQQRhoF7s0M
