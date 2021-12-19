@@ -1,6 +1,6 @@
 # Documentation
 
-"The Yale Weekly", created by Ananya Rajagopalan and Marcella Villagomez
+"The Yale Weekly", created by Ananya Rajagopalan ('24) and Marcella Villagomez ('24)
 
 ## YouTube Link to Demo Video
 
